@@ -1,0 +1,43 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition-time, visibility $transition-time;
+  padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px)
+    env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
+  z-index: 1000;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: $gray-shadow;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal__close {
+  position: absolute;
+  top: 30px;
+  right: 38px;
+  color: $white;
+  font-size: 54px;
+  z-index: 3;
+}
+
+.modal__container {
+  @include maxWidth(540px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}

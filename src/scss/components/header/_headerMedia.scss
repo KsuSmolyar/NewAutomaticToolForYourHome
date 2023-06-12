@@ -1,0 +1,11 @@
+@include laptop {
+  .header {
+    padding-top: 30px;
+  }
+}
+
+@include mobile {
+  .header {
+    padding-top: 16px;
+  }
+}

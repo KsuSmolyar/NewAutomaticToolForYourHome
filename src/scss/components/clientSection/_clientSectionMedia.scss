@@ -1,0 +1,65 @@
+@include desktop {
+  .clientSection {
+    padding: 102px 47px 102px;
+  }
+
+  .clientSection__tableElement {
+    padding: 41px 31px;
+  }
+}
+
+@include laptop {
+  .clientSection {
+    border-radius: $radiusLeftTopXL;
+  }
+
+  .clientSection__tableElement {
+    @include font(14px, 34px, 400);
+  }
+}
+
+@include tablet {
+  .clientSection {
+    padding: 50px 47px;
+  }
+
+  .clientSection__wrapper {
+    gap: 50px;
+  }
+
+  .clientSection__textInfo {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 10px;
+    justify-items: center;
+  }
+
+  .clientSection__title {
+    grid-column: 1;
+  }
+
+  .clientSection__text {
+    grid-column: 1;
+  }
+
+  .clientSection__tableElement {
+    @include font(12px, 32px, 400);
+    padding: 16px;
+  }
+}
+
+@include mobile {
+  .clientSection {
+    padding: 50px 32px;
+    border-radius: $radiusLeftTopSM;
+  }
+
+  .clientSection__wrapper {
+    gap: 32px;
+  }
+
+  .clientSection__tableElement {
+    @include font(12px, 24px, 400);
+    padding: 8px;
+  }
+}

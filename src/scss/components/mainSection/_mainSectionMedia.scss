@@ -1,0 +1,46 @@
+@include desktop {
+  .main__illustration {
+    width: 70%;
+  }
+}
+
+@include laptop {
+  .main {
+    padding-top: 10px;
+  }
+}
+
+@include tablet {
+  .main__information {
+    gap: 50px;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    align-items: center;
+    padding-bottom: 30px;
+  }
+
+  .main__illustration {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .inner {
+    gap: 35px;
+    align-items: center;
+  }
+
+  .title {
+    text-align: center;
+  }
+}
+
+@include mobile {
+  .main__information {
+    gap: 32px;
+    padding-bottom: 4px;
+  }
+
+  .inner {
+    gap: 16px;
+  }
+}

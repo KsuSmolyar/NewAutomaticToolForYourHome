@@ -1,0 +1,15 @@
+@import './common/variables';
+@import './common/reset';
+@import './common/mixins';
+@import './common/fonts';
+@import './common/common';
+@import './common/mediaBreakpoints';
+
+@import './components';
+
+@include font-face('Gilroy', 'Gilroy-Light', 300);
+@include font-face('Gilroy', 'Gilroy-Regular', 400);
+@include font-face('Gilroy', 'Gilroy-Medium', 500);
+@include font-face('Gilroy', 'Gilroy-Semibold', 600);
+@include font-face('Gilroy', 'Gilroy-Bold', 700);
+@include font-face('Galien', 'Galien-Regular', 400);

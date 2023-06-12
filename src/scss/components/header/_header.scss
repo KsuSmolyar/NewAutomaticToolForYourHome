@@ -1,0 +1,25 @@
+.header {
+  @extend %contentWidth;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin: 0 auto;
+  padding-inline: 24px;
+  padding-top: 48px;
+}
+
+.navigation {
+  @include size(100%, 48px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.navigation__logo {
+  @include size(48px, 32px);
+}
+
+.navigation__burger {
+  @include size(24px, 16px);
+}

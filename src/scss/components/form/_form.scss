@@ -1,0 +1,78 @@
+.form {
+  @extend %flexColumn;
+  gap: 70px;
+  @include size(100%, auto);
+  background-color: $white;
+  padding: 44px;
+  border-radius: $radius;
+  box-shadow: $shadow_3;
+  color: $blue_01;
+
+  button {
+    max-width: 100%;
+  }
+
+  label {
+    opacity: 0.8;
+    letter-spacing: 0.04em;
+  }
+}
+
+.form__title {
+  letter-spacing: 0.04em;
+}
+
+.containerForm {
+  @extend %flexColumn;
+  gap: 32px;
+}
+
+.form__controls {
+  @extend %flexColumn;
+  gap: 16px;
+}
+
+.controls__el {
+  position: relative;
+  @extend %flexColumn;
+  gap: 4px;
+
+  &[data-error] .form__input,
+  &[data-error] .form__textarea {
+    border-color: $red;
+  }
+
+  &::after {
+    content: attr(data-error);
+    position: absolute;
+    bottom: -22px;
+    color: $red;
+    font-size: 14px;
+  }
+}
+
+.form__input,
+.form__textarea {
+  border: 1px solid $blue_03-04;
+  border-radius: $radius;
+  padding: 21px;
+}
+
+.form__input {
+  height: 60px;
+}
+
+.form__textarea {
+  height: 144px;
+}
+
+.form__input::placeholder,
+.form__textarea::placeholder {
+  opacity: 0.2;
+}
+
+.form__input:focus-visible,
+.form__textarea:focus-visible {
+  outline: 2px solid $blue_03;
+  box-shadow: $shadow_3;
+}

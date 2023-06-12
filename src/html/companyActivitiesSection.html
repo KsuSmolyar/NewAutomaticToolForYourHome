@@ -1,0 +1,32 @@
+<section class="companyActivities">
+  <div class="container">
+    <div class="companyActivities__column companyActivities__column_left">
+      <h2 class="companyActivities__title titleSecond">
+        What we do to help our client grow in digital era,
+      </h2>
+      <!-- Info Card -->
+      @include('./infoCard.html', { 
+      "src": "./img/1.png", 
+      "title": 'Make Your business To Be Better Famous In Internet', 
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+       "right": "pictureContainer_right" 
+    })
+    </div>
+
+    <div class="companyActivities__column companyActivities__column_right">
+      <!-- Info Card -->
+      @include('./infoCard.html', {
+      "positioned": 'infoCard_positioned', 
+      "src": "./img/3.png", 
+      "title": 'Bring Technology To Your Comfrotable Home',
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." })
+
+      <!-- Info Card -->
+      @include('./infoCard.html', { 
+      "src": "./img/2 20.png", 
+      "title": 'Build Your Digital Product That Suitable For Your Need', 
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." })
+    
+    </div>
+  </div>
+</section>

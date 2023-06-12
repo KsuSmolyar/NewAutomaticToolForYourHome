@@ -1,0 +1,26 @@
+@mixin font-face($font-family, $url, $weight) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('../fonts/#{$url}.woff2') format('woff2'),
+      url('../#{$url}.woff') format('woff');
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+  }
+}
+
+@mixin font($fz, $lh, $fw) {
+  font-size: $fz;
+  line-height: $lh;
+  font-weight: $fw;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin maxWidth($mw) {
+  max-width: $mw;
+  width: 100%;
+}

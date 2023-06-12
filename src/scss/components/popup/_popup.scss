@@ -1,0 +1,20 @@
+.popUp {
+  @include maxWidth(300px);
+  @extend %flexColumn;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: $white;
+  height: 100px;
+  border-radius: $radius;
+}
+
+.popup__message {
+  font-weight: 500;
+  color: $blue_01;
+}
+
+.popup__checkmark {
+  @include size(25px, 20px);
+  color: $blue_03;
+}

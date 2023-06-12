@@ -1,0 +1,49 @@
+@include laptop {
+  .companyActivities {
+    padding-top: 95px;
+    padding-bottom: 160px;
+  }
+
+  .companyActivities__column_right {
+    justify-self: center;
+  }
+
+  .infoCard {
+    @include maxWidth(340px);
+    justify-self: center;
+    gap: 41px;
+    padding: 38px;
+  }
+}
+
+@include tablet {
+  .companyActivities {
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .companyActivities__column_left {
+    row-gap: 32px;
+    justify-content: center;
+  }
+
+  .companyActivities__column_right {
+    row-gap: 32px;
+  }
+
+  .companyActivities__title {
+    text-align: center;
+  }
+}
+
+@include mobile {
+  .infoCard {
+    gap: 41px;
+    padding: 24px;
+  }
+}

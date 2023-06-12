@@ -1,0 +1,79 @@
+@import './variables';
+@import './mediaBreakpoints';
+
+%flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+%contentWidth {
+  max-width: $contentWidth;
+  width: 100%;
+}
+
+%container_940 {
+  max-width: 940px;
+  width: 100%;
+}
+
+%titleFirst {
+  font-size: 54px;
+  line-height: 70px;
+  font-weight: 600;
+}
+
+@include laptop {
+  %titleFirst {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 600;
+  }
+}
+
+@include mobile {
+  %titleFirst {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+}
+
+%titleSecond {
+  font-size: 36px;
+  line-height: 46px;
+  font-weight: 600;
+}
+
+@include laptop {
+  %titleSecond {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+@include tablet {
+  %titleSecond {
+    font-size: 24px;
+    line-height: 34px;
+  }
+}
+
+@include mobile {
+  %titleSecond {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+%titleThird {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 500;
+}
+
+@include mobile {
+  %titleThird {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

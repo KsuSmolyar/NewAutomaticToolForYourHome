@@ -1,0 +1,22 @@
+.button_primary {
+  background-color: $blue_04;
+  color: $white;
+}
+
+.button_primary__withShadow {
+  box-shadow: $shadow_2;
+}
+
+.button_primary:hover,
+.button:focus-visible {
+  background-color: $blue_03;
+  font-weight: 500;
+}
+
+.button:focus-visible {
+  outline: 2px solid $blue_04;
+}
+
+.button:active {
+  background-color: $blue_05;
+}

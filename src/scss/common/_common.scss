@@ -1,0 +1,80 @@
+@import '../common/variables';
+@import '../common/mixins';
+@import '../common/extends';
+@import './common/mediaBreakpoints';
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Gilroy';
+  height: 100vh;
+}
+
+button:focus-visible,
+a[href]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+iframe:focus-visible,
+[contenteditable]:focus-visible,
+[tabindex]:not([tabindex^='-']):focus-visible {
+  outline: 2px solid $blue_04;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  border-radius: $radius;
+  @include maxWidth(220px);
+  height: fit-content;
+  padding-block: 15px;
+}
+
+.titleFirst {
+  @extend %titleFirst;
+}
+
+.titleSecond {
+  @extend %titleSecond;
+}
+
+.titleThird {
+  @extend %titleThird;
+}
+
+.delimetr {
+  height: 1px;
+  background-color: $white;
+  opacity: 0.4;
+  margin: 0;
+}
+
+@include laptop {
+  .button {
+    @include maxWidth(200px);
+    padding-block: 11px;
+  }
+}
+
+.disable-scroll {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.fadeInUp {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform $transition-time, opacity $transition-time;
+}
+
+.fadeInUp.animate-open {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform $transition-time, opacity $transition-time;
+}
