@@ -1,6 +1,6 @@
 @include desktop {
   .clientSection {
-    padding: 102px 47px 102px;
+    padding: 102px 47px;
   }
 
   .clientSection__tableElement {
@@ -28,10 +28,10 @@
   }
 
   .clientSection__textInfo {
+    justify-items: center;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     gap: 10px;
-    justify-items: center;
   }
 
   .clientSection__title {
@@ -44,14 +44,15 @@
 
   .clientSection__tableElement {
     @include font(12px, 32px, 400);
+
     padding: 16px;
   }
 }
 
 @include mobile {
   .clientSection {
-    padding: 50px 32px;
     border-radius: $radiusLeftTopSM;
+    padding: 50px 32px;
   }
 
   .clientSection__wrapper {
@@ -60,6 +61,7 @@
 
   .clientSection__tableElement {
     @include font(12px, 24px, 400);
+
     padding: 8px;
   }
 }

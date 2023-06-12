@@ -1,18 +1,18 @@
 @include laptop {
   .form {
-    gap: 54px;
     padding: 34px;
+    gap: 54px;
   }
 }
 
 @include tablet {
   .form {
-    width: 90%;
     padding: 16px;
+    width: 90%;
   }
 
   .form__input {
-    height: 50px;
     padding: 10px;
+    height: 50px;
   }
 }

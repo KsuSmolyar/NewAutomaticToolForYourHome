@@ -1,6 +1,6 @@
 .button_primary {
-  background-color: $blue_04;
   color: $white;
+  background-color: $blue_04;
 }
 
 .button_primary__withShadow {
@@ -9,8 +9,8 @@
 
 .button_primary:hover,
 .button:focus-visible {
-  background-color: $blue_03;
   font-weight: 500;
+  background-color: $blue_03;
 }
 
 .button:focus-visible {

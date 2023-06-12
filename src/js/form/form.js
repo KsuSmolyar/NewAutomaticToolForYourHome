@@ -1,4 +1,3 @@
-import { minLength, required } from './helpers';
 import { Validator } from './validator';
 
 export class Form {
@@ -17,39 +16,36 @@ export class Form {
       throw new Error('Не удалось получить элемент form');
     }
     if (
-      !this.fields.length ||
-      !!this.fields.filter(
-        (field) =>
-          !field.name ||
-          typeof field.name !== 'string' ||
-          (field.validator !== null &&
-            Object.getPrototypeOf(field.validator) !== Validator.prototype)
+      !this.fields.length
+      || !!this.fields.filter(
+        (field) => !field.name
+          || typeof field.name !== 'string'
+          || (field.validator !== null
+            && Object.getPrototypeOf(field.validator) !== Validator.prototype),
       ).length
     ) {
       throw new Error(
-        'Массив с полями формы не должен быть пустым и объект в массиве должен содержать следующую структуру: {name: "string", validator: Validator | null}'
+        'Массив с полями формы не должен быть пустым и объект в массиве должен содержать следующую структуру: {name: "string", validator: Validator | null}',
       );
     }
 
     if (!this.onSubmit || typeof this.onSubmit !== 'function') {
       throw new Error(
-        'Не передана функция onSubmit или onSubmit не является функцией'
+        'Не передана функция onSubmit или onSubmit не является функцией',
       );
     }
 
     this.fieldsElements = this.fields.map((field) => {
       if (!this.form[field.name]) {
         throw new Error(
-          'Не удалось найти элемент формы со значение аттрибута name: ' +
-            field.name
+          `Не удалось найти элемент формы со значение аттрибута name: ${
+            field.name}`,
         );
       }
-      this.form[field.name].addEventListener('blur', (e) =>
-        this.validate.call(this, e.target, field.validator)
-      );
+      this.form[field.name].addEventListener('blur', (e) => this.validate.call(this, e.target, field.validator));
       this.form[field.name].addEventListener(
         'input',
-        this.resetValidation.bind(this)
+        this.resetValidation.bind(this),
       );
       return this.form[field.name];
     });
@@ -63,13 +59,13 @@ export class Form {
 
     while (this.isValid && this.fieldsElements.length > i) {
       const fieldElement = this.fieldsElements[i];
-      const validator = this.fields.find(
-        (filed) => filed.name === fieldElement.name
-      ).validator;
+      const { validator } = this.fields.find(
+        (filed) => filed.name === fieldElement.name,
+      );
       if (!this.validate(fieldElement, validator)) {
         fieldElement.focus();
       }
-      i++;
+      i += 1;
     }
 
     if (this.isValid) {
@@ -84,8 +80,9 @@ export class Form {
   validate(element, validator) {
     const value = element.value.trim();
     const res = validator && validator.validate(value);
-    if (!!res) {
-      element.parentNode.dataset['error'] = res;
+    if (res) {
+      // eslint-disable-next-line no-param-reassign
+      element.parentNode.dataset.error = res;
       element.focus();
     }
     this.isValid = !res;
@@ -99,6 +96,7 @@ export class Form {
 
   clear() {
     this.fieldsElements.forEach((element) => {
+      // eslint-disable-next-line no-param-reassign
       element.value = '';
     });
   }

@@ -1,21 +1,23 @@
 .form {
-  @extend %flexColumn;
-  gap: 70px;
   @include size(100%, auto);
-  background-color: $white;
-  padding: 44px;
+
   border-radius: $radius;
+  padding: 44px;
   box-shadow: $shadow_3;
   color: $blue_01;
+  background-color: $white;
+  gap: 70px;
 
   button {
     max-width: 100%;
   }
 
   label {
-    opacity: 0.8;
     letter-spacing: 0.04em;
+    opacity: 0.8;
   }
+
+  @extend %flexColumn;
 }
 
 .form__title {
@@ -23,32 +25,35 @@
 }
 
 .containerForm {
-  @extend %flexColumn;
   gap: 32px;
+
+  @extend %flexColumn;
 }
 
 .form__controls {
-  @extend %flexColumn;
   gap: 16px;
+
+  @extend %flexColumn;
 }
 
 .controls__el {
   position: relative;
-  @extend %flexColumn;
   gap: 4px;
+
+  &::after {
+    content: attr(data-error);
+    position: absolute;
+    bottom: -22px;
+    font-size: 14px;
+    color: $red;
+  }
 
   &[data-error] .form__input,
   &[data-error] .form__textarea {
     border-color: $red;
   }
 
-  &::after {
-    content: attr(data-error);
-    position: absolute;
-    bottom: -22px;
-    color: $red;
-    font-size: 14px;
-  }
+  @extend %flexColumn;
 }
 
 .form__input,

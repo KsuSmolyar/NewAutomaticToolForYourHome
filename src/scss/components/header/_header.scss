@@ -1,18 +1,19 @@
 .header {
-  @extend %contentWidth;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
   margin: 0 auto;
-  padding-inline: 24px;
   padding-top: 48px;
+  padding-inline: 24px;
+
+  @extend %contentWidth;
 }
 
 .navigation {
   @include size(100%, 48px);
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   max-width: 1200px;
 }
 

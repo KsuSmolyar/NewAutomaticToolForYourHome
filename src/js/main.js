@@ -36,6 +36,8 @@ const form = new Form({
       modalForm.close();
       modalPopup.open();
       form.clear();
-    } catch (e) {}
+    } catch (e) {
+      console.error(e);
+    }
   },
 });

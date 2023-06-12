@@ -1,7 +1,7 @@
 @include desktop {
   .footer__wrapper {
     border-radius: $radiusRightTopXL;
-    padding: 91px 0px 64px 47px;
+    padding: 91px 0 64px 47px;
   }
 
   .footerUpper {
@@ -93,9 +93,9 @@
   }
 
   .footer__wrapper {
-    gap: 52px;
     border-radius: $radiusRightTopSM;
     padding: 40px 10px 50px 32px;
+    gap: 52px;
   }
 
   .footerUpper {

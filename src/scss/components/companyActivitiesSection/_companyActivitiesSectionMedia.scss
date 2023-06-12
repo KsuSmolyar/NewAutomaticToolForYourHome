@@ -10,9 +10,10 @@
 
   .infoCard {
     @include maxWidth(340px);
+
     justify-self: center;
-    gap: 41px;
     padding: 38px;
+    gap: 41px;
   }
 }
 
@@ -28,8 +29,8 @@
   }
 
   .companyActivities__column_left {
-    row-gap: 32px;
     justify-content: center;
+    row-gap: 32px;
   }
 
   .companyActivities__column_right {
@@ -43,7 +44,7 @@
 
 @include mobile {
   .infoCard {
-    gap: 41px;
     padding: 24px;
+    gap: 41px;
   }
 }

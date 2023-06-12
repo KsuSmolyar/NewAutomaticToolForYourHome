@@ -7,41 +7,41 @@
 }
 
 %contentWidth {
-  max-width: $contentWidth;
   width: 100%;
+  max-width: $contentWidth;
 }
 
 %container_940 {
-  max-width: 940px;
   width: 100%;
+  max-width: 940px;
 }
 
 %titleFirst {
+  font-weight: 600;
   font-size: 54px;
   line-height: 70px;
-  font-weight: 600;
 }
 
 @include laptop {
   %titleFirst {
+    font-weight: 600;
     font-size: 40px;
     line-height: 50px;
-    font-weight: 600;
   }
 }
 
 @include mobile {
   %titleFirst {
+    font-weight: 600;
     font-size: 30px;
     line-height: 40px;
-    font-weight: 600;
   }
 }
 
 %titleSecond {
+  font-weight: 600;
   font-size: 36px;
   line-height: 46px;
-  font-weight: 600;
 }
 
 @include laptop {
@@ -66,9 +66,9 @@
 }
 
 %titleThird {
+  font-weight: 500;
   font-size: 20px;
   line-height: 30px;
-  font-weight: 500;
 }
 
 @include mobile {

@@ -2,8 +2,7 @@ export class Modal {
   constructor({ modalId, btnOpenId = false }) {
     this.modalElem = document.getElementById(modalId);
     this.buttonOpen = btnOpenId && document.getElementById(btnOpenId);
-    // console.log(this.modalElem, modalId);
-    this._focusElements = [
+    this.focusElements = [
       'a[href]',
       'input',
       'select',
@@ -20,10 +19,9 @@ export class Modal {
   }
 
   events() {
-    // console.log(this.modalElem);
     if (!this.modalElem) {
       throw new Error(
-        'Элемент модального окна modal должен содержать id=modal'
+        'Элемент модального окна modal должен содержать id=modal',
       );
     }
 
@@ -33,27 +31,28 @@ export class Modal {
 
     if (!this.modalContainer) {
       throw new Error(
-        'Элемент модального окна modalContainer должен содержать id=modalContainer'
+        'Элемент модального окна modalContainer должен содержать id=modalContainer',
       );
     }
     if (!this.modalBackdrop) {
       throw new Error(
-        'Элемент модального окна backdrop должен содержать id=modalBackdrop'
+        'Элемент модального окна backdrop должен содержать id=modalBackdrop',
       );
     }
     if (!this.buttonClose) {
       throw new Error(
-        'Элемент модального окна buttonClose должен содержать id=modalButtonClose'
+        'Элемент модального окна buttonClose должен содержать id=modalButtonClose',
       );
     }
     if (this.buttonOpen === null) {
       throw new Error(
-        'Элемент модального окна buttonOpen должен содержать id=modalButtonOpen'
+        'Не удалось найти элемент по id переданному в btnOpenId',
       );
     }
 
-    this.buttonOpen &&
+    if (this.buttonOpen) {
       this.buttonOpen.addEventListener('click', this.open.bind(this));
+    }
     this.buttonClose.addEventListener('click', this.close.bind(this));
     this.modalBackdrop.addEventListener('click', this.close.bind(this));
 
@@ -61,13 +60,12 @@ export class Modal {
   }
 
   keyBinding(e) {
-    if (e.keyCode == 27 && this.isOpen) {
+    if (e.keyCode === 27 && this.isOpen) {
       this.close();
     }
 
-    if (e.which == 9 && this.isOpen) {
+    if (e.which === 9 && this.isOpen) {
       this.focusCatch(e);
-      return;
     }
   }
 
@@ -100,7 +98,7 @@ export class Modal {
   }
 
   focusCatch(e) {
-    const nodes = this.modalContainer.querySelectorAll(this._focusElements);
+    const nodes = this.modalContainer.querySelectorAll(this.focusElements);
     const nodesArray = Array.prototype.slice.call(nodes);
     const focusedItemIndex = nodesArray.indexOf(document.activeElement);
     if (e.shiftKey && focusedItemIndex === 0) {
@@ -114,7 +112,7 @@ export class Modal {
   }
 
   focusTrap() {
-    const nodes = this.modalContainer.querySelectorAll(this._focusElements);
+    const nodes = this.modalContainer.querySelectorAll(this.focusElements);
     if (this.isOpen) {
       if (nodes.length) nodes[0].focus();
     } else if (this.previousActiveElement) {
@@ -123,15 +121,15 @@ export class Modal {
   }
 
   disableScroll() {
-    let pagePosition = window.scrollY;
+    const pagePosition = window.scrollY;
     this.lockPadding();
     document.body.classList.add('disable-scroll');
     document.body.dataset.position = pagePosition;
-    document.body.style.top = -pagePosition + 'px';
+    document.body.style.top = `${-pagePosition}px`;
   }
 
   enableScroll() {
-    let pagePosition = parseInt(document.body.dataset.position, 10);
+    const pagePosition = parseInt(document.body.dataset.position, 10);
     this.unlockPadding();
     document.body.style.top = 'auto';
     document.body.classList.remove('disable-scroll');
@@ -143,7 +141,7 @@ export class Modal {
   }
 
   lockPadding() {
-    let paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
+    const paddingOffset = `${window.innerWidth - document.body.offsetWidth}px`;
     document.body.style.paddingRight = paddingOffset;
   }
 

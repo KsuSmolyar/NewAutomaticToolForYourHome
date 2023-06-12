@@ -12,21 +12,21 @@
 
 @include tablet {
   .main__information {
-    gap: 50px;
+    align-items: center;
     grid-column: 1 / -1;
     grid-row: 2;
-    align-items: center;
     padding-bottom: 30px;
+    gap: 50px;
   }
 
   .main__illustration {
-    grid-column: 1 / -1;
     justify-self: center;
+    grid-column: 1 / -1;
   }
 
   .inner {
-    gap: 35px;
     align-items: center;
+    gap: 35px;
   }
 
   .title {
@@ -36,8 +36,8 @@
 
 @include mobile {
   .main__information {
-    gap: 32px;
     padding-bottom: 4px;
+    gap: 32px;
   }
 
   .inner {

@@ -4,59 +4,65 @@
   justify-content: center;
   padding-bottom: 50px;
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
-    inset: 0;
     background: $gradient_1;
     opacity: 0.2;
+    inset: 0;
   }
 }
 
 .main__wrapper {
-  @extend %contentWidth;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding-inline: 24px;
+
+  @extend %contentWidth;
 }
 
 .main__information {
-  @extend %flexColumn;
-  gap: 65px;
-  grid-column: 1 / 3;
-  grid-row: 1;
+  z-index: 1;
   align-self: center;
   justify-self: center;
+  grid-column: 1 / 3;
+  grid-row: 1;
   padding-bottom: 44px;
-  z-index: 1;
+  gap: 65px;
+
+  @extend %flexColumn;
 }
 
 .inner {
-  @extend %flexColumn;
-  gap: 45px;
   color: $blue_01;
+  gap: 45px;
+
+  @extend %flexColumn;
 }
 
 .title {
   @include maxWidth(516px);
+
+  font-family: 'Galien', sans-serif;
   letter-spacing: 0.06em;
-  font-family: 'Galien';
 }
 
 .info {
   @include maxWidth(425px);
-  opacity: 0.6;
+
   letter-spacing: 0.05em;
+  opacity: 0.6;
 }
 
 .main__illustration {
   display: flex;
+  justify-self: end;
   grid-column: 2 / 4;
   grid-row: 1;
-  justify-self: end;
 
   img {
     @include size(100%, auto);
+
     object-fit: contain;
   }
 }
