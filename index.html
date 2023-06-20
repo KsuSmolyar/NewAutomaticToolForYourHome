@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Afrianska</title>
+    <link rel="icon" href="img/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="stylesheet" href="css/index.min.css" />
   </head>
   <body>
@@ -12,10 +14,14 @@
     <header class="header">
   <nav class="navigation">
     <a href="#">
-      <img class="navigation__logo" width="48" height="32" src="img/logo-dark.svg" alt="логотип компании">
+      <svg class="navigation__logo" width="48" height="32">
+        <use xlink:href="img/sprite.svg#logoDark "></use>
+      </svg>
     </a>
     <button class="navigation__menuButton">
-      <img class="navigation__burger" width="24" height="16" src="img/burger.svg" alt="бургер меню">
+      <svg class="navigation__burger" width="24" height="16">
+        <use xlink:href="img/sprite.svg#burger "></use>
+      </svg>
     </button>
   </nav>
 </header>
@@ -59,10 +65,11 @@
       <h3 class="infoCard__title titleThird">Make Your business To Be Better Famous In Internet</h3>
       <p class="infoCard__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
-
-    <a class="infoCard__link" href="#"
-      ><span>Learn more</span>
-      <img class="arrowRight" width="16" height="16" src="img/arrow.svg" alt="ссылка на дополнительнцю информацию">
+    <a class="infoCard__link" href="#">
+      <span>Learn more</span>
+      <svg class="arrowRight" width="16" height="16">
+        <use xlink:href="img/sprite.svg#arrow "></use>
+      </svg>
     </a>
   </div>
 </div>
@@ -80,10 +87,11 @@
       <h3 class="infoCard__title titleThird">Bring Technology To Your Comfrotable Home</h3>
       <p class="infoCard__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
-
-    <a class="infoCard__link" href="#"
-      ><span>Learn more</span>
-      <img class="arrowRight" width="16" height="16" src="img/arrow.svg" alt="ссылка на дополнительнцю информацию">
+    <a class="infoCard__link" href="#">
+      <span>Learn more</span>
+      <svg class="arrowRight" width="16" height="16">
+        <use xlink:href="img/sprite.svg#arrow "></use>
+      </svg>
     </a>
   </div>
 </div>
@@ -99,10 +107,11 @@
       <h3 class="infoCard__title titleThird">Build Your Digital Product That Suitable For Your Need</h3>
       <p class="infoCard__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
-
-    <a class="infoCard__link" href="#"
-      ><span>Learn more</span>
-      <img class="arrowRight" width="16" height="16" src="img/arrow.svg" alt="ссылка на дополнительнцю информацию">
+    <a class="infoCard__link" href="#">
+      <span>Learn more</span>
+      <svg class="arrowRight" width="16" height="16">
+        <use xlink:href="img/sprite.svg#arrow "></use>
+      </svg>
     </a>
   </div>
 </div>
@@ -124,7 +133,6 @@
     </div>
     <div class="clientSection__table">
       
-        
   <div class="clientSection__tableElement">
     LOGO CLIENT 1
    </div>
@@ -156,9 +164,9 @@
 
 
 
-        <div class="clientSection__tableElement clientSection__tableElementLast">
-          <a href="#">More Client</a>
-         </div>
+      <div class="clientSection__tableElement clientSection__tableElementLast">
+        <a href="#">More Client</a>
+      </div>
     </div>
   </div>
 </section>
@@ -184,7 +192,12 @@
       <div class="footerLower__inner">
         <section class="footerLower__section footerLower__section_first">
           <a class="sectionTitleLink sectionTitleLink_main">
-            <img class="footerLogo" width="48" height="32" src="img/logo-light.svg" alt="логотип компании">
+            <svg class="footerLogo" width="48" height="32">
+
+              <use xlink:href="img/sprite.svg#logoLight "></use>
+          
+          </svg>
+
             <span>Afrianska</span>
           </a>
           <section class="sectionList">
@@ -261,24 +274,24 @@
   <div id='modalContainer' class="modal__container">
     <form id="form" class="form" novalidate>
   <div class="containerForm">
-  <h3 class="form__title titleThird">SEND US MESSAGE</h3>
-  <div class="form__controls">
-    <div class="controls__el">
-      <label for="name">Full Name</label>
-      <input name="name" id="name" type="text" class="form__input" placeholder="Your Name">
-    </div>
+    <h3 class="form__title titleThird">SEND US MESSAGE</h3>
+    <div class="form__controls">
+      <div class="controls__el">
+        <label for="name">Full Name</label>
+        <input data-required data-min-length="2" data-string-only name="name" id="name" type="text" class="form__input" placeholder="Your Name">
+      </div>
 
-    <div class="controls__el">
-      <label for="email">Email</label>
-      <input name="email" id="email" type="email" class="form__input" placeholder="Your Email">
-    </div>
+      <div class="controls__el">
+        <label for="email">Email</label>
+        <input data-required data-validate-email name="email" id="email" type="email" class="form__input" placeholder="Your Email">
+      </div>
 
-    <div class="controls__el">
-     <label for="message">Message</label>
-      <textarea name="message" class="form__textarea" name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+      <div class="controls__el">
+      <label for="message">Message</label>
+        <textarea name="message" class="form__textarea" name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+      </div>
     </div>
   </div>
-</div>
   <button type='submit' class="button button_primary button_primary__withShadow">SUBMIT</button>
 </form>
 
@@ -291,15 +304,16 @@
   <button id="modalButtonClose" class="modal__close">x</button>
   <div id='modalContainer' class="modal__container">
     <div class="popUp">
-  
   <p class="popup__message">Your message successfully sent</p>
-  <img class="popup__checkmark" src="img/verification-checkmark-symbol.svg" alt="подтверждение">
+  <svg class="popup__checkmark">
+    <use xlink:href="img/sprite.svg#verification-checkmark-symbol "></use>
+  </svg>
 </div>
 
   </div>
 </div>
 
   
-    <script src="js/main.js"></script>
+    <script  src="js/bundle.js"></script>
   </body>
 </html>
