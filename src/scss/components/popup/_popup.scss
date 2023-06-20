@@ -3,9 +3,9 @@
 
   align-items: center;
   justify-content: center;
-  border-radius: $radius;
+  border-radius: var(--radius);
   height: 100px;
-  background-color: $white;
+  background-color: var(--white);
   gap: 5px;
 
   @extend %flexColumn;
@@ -13,11 +13,11 @@
 
 .popup__message {
   font-weight: 500;
-  color: $blue_01;
+  color: var(--blue_01);
 }
 
 .popup__checkmark {
   @include size(25px, 20px);
 
-  color: $blue_03;
+  color: var(--blue_03);
 }

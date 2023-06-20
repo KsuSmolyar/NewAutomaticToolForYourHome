@@ -9,7 +9,7 @@
     env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
   opacity: 0;
   visibility: hidden;
-  transition: opacity $transition-time, visibility $transition-time;
+  transition: opacity var(--transition-time), visibility var(--transition-time);
   inset: 0;
 
   &.is-open {
@@ -21,7 +21,7 @@
 .backdrop {
   position: absolute;
   overflow-y: auto;
-  background-color: $gray-shadow;
+  background-color: var(--gray-shadow);
   inset: 0;
   -webkit-overflow-scrolling: touch;
 }
@@ -32,7 +32,7 @@
   top: 30px;
   z-index: 3;
   font-size: 54px;
-  color: $white;
+  color: var(--white);
 }
 
 .modal__container {
@@ -42,4 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: auto;
+  height: 100%;
+  padding-block: 10px;
 }

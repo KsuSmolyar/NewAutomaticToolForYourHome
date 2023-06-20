@@ -14,12 +14,14 @@ const ttf2woff = require('gulp-ttf2woff');
 const ttf2woff2 = require('gulp-ttf2woff2');
 const fs = require('fs');
 const del = require('del');
-const webpackStream = require('webpack-stream');
 const uglify = require('gulp-uglify-es').default;
 const tiny = require('gulp-tinypng-compress');
 const gutil = require('gulp-util');
-const ftp = require('vinyl-ftp');
 const stylelint = require('gulp-stylelint');
+const svgSprite = require('gulp-svg-sprite');
+const browserify = require('browserify');
+const buffer = require('vinyl-buffer');
+const source = require('vinyl-source-stream');
 
 const clean = () => del(['app/*']);
 
@@ -69,6 +71,13 @@ const svgMin = () => src('./src/img/**.svg')
       },
     }),
   )
+  .pipe(svgSprite({
+    mode: {
+      symbol: {
+        sprite: '../sprite.svg',
+      },
+    },
+  }))
   .pipe(dest('./app/img'));
 
 const scssLintFix = () => src('./src/scss/**/*.scss')
@@ -103,45 +112,30 @@ const htmlInclude = () => src(['./src/index.html'])
   .pipe(dest('./app'))
   .pipe(browserSync.stream());
 
-const imgToApp = () => src(['./src/img/**.jpeg', './src/img/**.png', './src/img/**.jpeg']).pipe(
+const imgToApp = () => src(['./src/img/**.jpeg', './src/img/**.png', './src/img/**.jpeg', './src/img/**.ico']).pipe(
   dest('./app/img'),
 );
 
 const resources = () => src('./src/resources/**').pipe(dest('./app'));
 
-const scripts = () => src('./src/js/main.js')
-  .pipe(
-    webpackStream({
-      mode: 'development',
-      output: {
-        filename: 'main.js',
-      },
-      module: {
-        rules: [
-          {
-            test: /\.m?js$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env'],
-              },
-            },
-          },
-        ],
-      },
-    }),
-  )
-  .on('error', function (err) {
-    console.error('WEBPACK ERROR', err);
-    this.emit('end'); // Don't stop the rest of the task
+function scripts() {
+  const b = browserify({
+    entries: './src/js/main.js',
+    debug: true,
   })
+    .transform('babelify');
+  b.on('log', gutil.log);
 
-  .pipe(sourcemaps.init())
-  .pipe(uglify().on('error', notify.onError()))
-  .pipe(sourcemaps.write('.'))
-  .pipe(dest('./app/js'))
-  .pipe(browserSync.stream());
+  return b.bundle()
+    .on('error', notify.onError())
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(uglify().on('error', notify.onError()))
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest('./app/js'))
+    .pipe(browserSync.stream());
+}
 
 const watchFiles = () => {
   browserSync.init({
@@ -205,35 +199,19 @@ const stylesBuild = () => src('./src/scss/**/*.scss')
   )
   .pipe(dest('./app/css/'));
 
-const scriptsBuild = () => src('./src/js/main.js')
-  .pipe(
-    webpackStream({
-      mode: 'development',
-      output: {
-        filename: 'main.js',
-      },
-      module: {
-        rules: [
-          {
-            test: /\.m?js$/,
-            exclude: /(node_modules|bower_components)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                presets: ['@babel/preset-env'],
-              },
-            },
-          },
-        ],
-      },
-    }),
-  )
-  .on('error', function (err) {
-    console.error('WEBPACK ERROR', err);
-    this.emit('end'); // Don't stop the rest of the task
+const scriptsBuild = () => {
+  const b = browserify({
+    entries: './src/js/main.js',
   })
-  .pipe(uglify().on('error', notify.onError()))
-  .pipe(dest('./app/js'));
+    .transform('babelify');
+
+  return b.bundle()
+    .on('error', notify.onError())
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(uglify().on('error', notify.onError()))
+    .pipe(dest('./app/js'));
+};
 
 exports.build = series(
   clean,
@@ -242,27 +220,5 @@ exports.build = series(
   stylesBuild,
   tinypng,
 );
-
-// deploy
-const deploy = () => {
-  const conn = ftp.create({
-    host: '',
-    user: '',
-    password: '',
-    parallel: 10,
-    log: gutil.log,
-  });
-
-  const globs = ['app/**'];
-
-  return src(globs, {
-    base: './app',
-    buffer: false,
-  })
-    .pipe(conn.newer(''))
-    .pipe(conn.dest(''));
-};
-
-exports.deploy = deploy;
 
 exports.stylelint = parallel(scssLintFix);

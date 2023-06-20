@@ -2,42 +2,32 @@ import { sendForm } from './api';
 import {
   Validator,
   Form,
-  required,
-  minLength,
-  validateEmail,
-  stringOnly,
 } from './form';
 import { Modal } from './modal';
+import { ScrollDisplay } from './scrollDisplay';
 
-const modalForm = new Modal({
-  modalId: 'modal-form',
-  btnOpenId: 'modalButtonOpen',
-});
-const modalPopup = new Modal({ modalId: 'modal-popup' });
+function ready() {
+  const modalForm = new Modal({
+    modalId: 'modal-form',
+    btnOpenId: 'modalButtonOpen',
+    scrollDisplay: ScrollDisplay,
+  });
+  const modalPopup = new Modal({ modalId: 'modal-popup', scrollDisplay: ScrollDisplay });
 
-const form = new Form({
-  formId: 'form',
-  fields: [
-    {
-      name: 'name',
-      validator: new Validator({
-        rules: [required(), stringOnly(), minLength(2)],
-      }),
+  const form = new Form({
+    formId: 'form',
+    validator: new Validator(),
+    onSubmit: async (payload) => {
+      try {
+        await sendForm(payload);
+        modalForm.close();
+        modalPopup.open();
+        form.clear();
+      } catch (e) {
+        console.error(e);
+      }
     },
-    {
-      name: 'email',
-      validator: new Validator({ rules: [required(), validateEmail()] }),
-    },
-    { name: 'message', validator: null },
-  ],
-  onSubmit: async (payload) => {
-    try {
-      await sendForm(payload);
-      modalForm.close();
-      modalPopup.open();
-      form.clear();
-    } catch (e) {
-      console.error(e);
-    }
-  },
-});
+  });
+}
+
+document.addEventListener('DOMContentLoaded', ready);

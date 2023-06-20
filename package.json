@@ -14,15 +14,15 @@
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
-    "babel-loader": "^9.1.2",
+    "babelify": "^10.0.0",
     "browser-sync": "^2.29.3",
+    "browserify": "^17.0.0",
     "del": "^6.1.1",
     "eslint": "^8.42.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
-    "gulp-cheerio": "^1.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.3.0",
     "gulp-file-include": "^2.3.0",
@@ -31,6 +31,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-stylelint": "^13.0.0",
+    "gulp-svg-sprite": "^2.0.3",
     "gulp-svgmin": "^4.1.0",
     "gulp-tinypng-compress": "^1.2.5",
     "gulp-ttf2woff": "^1.1.1",
@@ -44,8 +45,7 @@
     "stylelint": "^14.2.0",
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-order": "^5.0.0",
-    "vinyl-ftp": "^0.6.1",
-    "webpack": "^5.86.0",
-    "webpack-stream": "^7.0.0"
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   }
 }

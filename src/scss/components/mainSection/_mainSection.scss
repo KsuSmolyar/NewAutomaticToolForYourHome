@@ -7,7 +7,7 @@
   &::before {
     content: '';
     position: absolute;
-    background: $gradient_1;
+    background: var(--gradient_1);
     opacity: 0.2;
     inset: 0;
   }
@@ -34,7 +34,7 @@
 }
 
 .inner {
-  color: $blue_01;
+  color: var(--blue_01);
   gap: 45px;
 
   @extend %flexColumn;

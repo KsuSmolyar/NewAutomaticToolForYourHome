@@ -1,5 +1,6 @@
 export class Modal {
-  constructor({ modalId, btnOpenId = false }) {
+  constructor({ scrollDisplay, modalId, btnOpenId = false }) {
+    this.scrollDisplay = scrollDisplay;
     this.modalElem = document.getElementById(modalId);
     this.buttonOpen = btnOpenId && document.getElementById(btnOpenId);
     this.focusElements = [
@@ -78,7 +79,7 @@ export class Modal {
     document.body.style.scrollBehavior = 'auto';
     document.documentElement.style.scrollBehavior = 'auto';
 
-    this.disableScroll();
+    this.scrollDisplay.disableScroll();
 
     setTimeout(() => {
       this.isOpen = true;
@@ -91,7 +92,7 @@ export class Modal {
     this.modalContainer.classList.remove('fadeInUp');
     this.modalContainer.classList.remove('animate-open');
 
-    this.enableScroll();
+    this.scrollDisplay.enableScroll();
 
     this.isOpen = false;
     this.focusTrap();
@@ -118,34 +119,5 @@ export class Modal {
     } else if (this.previousActiveElement) {
       this.previousActiveElement.focus();
     }
-  }
-
-  disableScroll() {
-    const pagePosition = window.scrollY;
-    this.lockPadding();
-    document.body.classList.add('disable-scroll');
-    document.body.dataset.position = pagePosition;
-    document.body.style.top = `${-pagePosition}px`;
-  }
-
-  enableScroll() {
-    const pagePosition = parseInt(document.body.dataset.position, 10);
-    this.unlockPadding();
-    document.body.style.top = 'auto';
-    document.body.classList.remove('disable-scroll');
-    window.scrollTo({
-      top: pagePosition,
-      left: 0,
-    });
-    document.body.removeAttribute('data-position');
-  }
-
-  lockPadding() {
-    const paddingOffset = `${window.innerWidth - document.body.offsetWidth}px`;
-    document.body.style.paddingRight = paddingOffset;
-  }
-
-  unlockPadding() {
-    document.body.style.paddingRight = '0px';
   }
 }
