@@ -1,32 +1,36 @@
-$white: #fff;
-$blue_01: #1f3f68;
-$blue_01-02: rgb(31 63 104 / 20%);
-$blue_02: #316099;
-$blue_03: #356ead;
-$blue_03-04: rgb(53 110 173 / 40%);
-$blue_04: #5a98d0;
-$blue_05: #98c3e8;
-$red: #f00;
-$gray-shadow: rgb(7 5 14 / 92%);
-$shadow_1: 5px 20px 50px rgb(16 112 177 / 20%);
-$shadow_2: 5px 10px 20px rgb(53 110 173 / 20%);
-$shadow_3: 5px 10px 50px rgb(16 112 177 / 20%);
-$gradient_1:
-  linear-gradient(
-    0deg,
-    #98c3e8 8.84%,
-    rgb(152 195 232 / 0%) 31.12%
-  );
-$radiusRightTop: 0 200px 0 0;
-$radiusLeftTop: 200px 0 0 0;
-$radiusRightTopXL: 0 170px 0 0;
-$radiusLeftTopXL: 170px 0 0 0;
-$radiusRightTopSM: 0 100px 0 0;
-$radiusLeftTopSM: 100px 0 0 0;
-$radius: 10px;
-$contentWidth: 1366px;
+:root {
+  --white: #fff;
+  --transparent: transparent;
+  --blue_01: #1f3f68;
+  --blue_01-02: rgb(31 63 104 / 20%);
+  --blue_02: #316099;
+  --blue_03: #356ead;
+  --blue_03-04: rgb(53 110 173 / 40%);
+  --blue_04: #5a98d0;
+  --blue_05: #98c3e8;
+  --red: #f00;
+  --gray-shadow: rgb(7 5 14 / 92%);
+  --shadow_1: 5px 20px 50px rgb(16 112 177 / 20%);
+  --shadow_2: 5px 10px 20px rgb(53 110 173 / 20%);
+  --shadow_3: 5px 10px 50px rgb(16 112 177 / 20%);
+  --gradient_1:
+    linear-gradient(
+      0deg,
+      #98c3e8 8.84%,
+      rgb(152 195 232 / 0%) 31.12%
+    );
+  --radiusRightTop: 0 200px 0 0;
+  --radiusLeftTop: 200px 0 0 0;
+  --radiusRightTopXL: 0 170px 0 0;
+  --radiusLeftTopXL: 170px 0 0 0;
+  --radiusRightTopSM: 0 100px 0 0;
+  --radiusLeftTopSM: 100px 0 0 0;
+  --radius: 10px;
+  --contentWidth: 1366px;
+  --transition-time: 300ms;
+}
+
 $breakpoint_xxl: 1365px;
 $breakpoint_xl: 1024px;
 $breakpoint_md: 767px;
 $breakpoint_sm: 576px;
-$transition-time: 300ms;

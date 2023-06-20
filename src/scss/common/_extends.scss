@@ -8,7 +8,7 @@
 
 %contentWidth {
   width: 100%;
-  max-width: $contentWidth;
+  max-width: var(--contentWidth);
 }
 
 %container_940 {

@@ -10,7 +10,7 @@
 
 @include laptop {
   .clientSection {
-    border-radius: $radiusLeftTopXL;
+    border-radius: var(--radiusLeftTopXL);
   }
 
   .clientSection__tableElement {
@@ -51,7 +51,7 @@
 
 @include mobile {
   .clientSection {
-    border-radius: $radiusLeftTopSM;
+    border-radius: var(--radiusLeftTopSM);
     padding: 50px 32px;
   }
 

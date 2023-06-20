@@ -18,7 +18,7 @@ textarea:focus-visible,
 iframe:focus-visible,
 [contenteditable]:focus-visible,
 [tabindex]:not([tabindex^='-']):focus-visible {
-  outline: 2px solid $blue_04;
+  outline: 2px solid var(--blue_04);
 }
 
 .button {
@@ -26,7 +26,7 @@ iframe:focus-visible,
 
   display: flex;
   justify-content: center;
-  border-radius: $radius;
+  border-radius: var(--radius);
   height: fit-content;
   letter-spacing: 0.04em;
   padding-block: 15px;
@@ -47,7 +47,7 @@ iframe:focus-visible,
 .delimetr {
   margin: 0;
   height: 1px;
-  background-color: $white;
+  background-color: var(--white);
   opacity: 0.4;
 }
 
@@ -71,11 +71,11 @@ iframe:focus-visible,
 .fadeInUp {
   opacity: 0;
   transform: translateY(-100px);
-  transition: transform $transition-time, opacity $transition-time;
+  transition: transform var(--transition-time), opacity var(--transition-time);
 }
 
 .fadeInUp.animate-open {
   opacity: 1;
   transform: translateY(0);
-  transition: transform $transition-time, opacity $transition-time;
+  transition: transform var(--transition-time), opacity var(--transition-time);
 }

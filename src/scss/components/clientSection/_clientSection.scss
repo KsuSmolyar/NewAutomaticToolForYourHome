@@ -1,9 +1,9 @@
 .clientSection {
   display: flex;
   justify-content: center;
-  border-radius: $radiusLeftTop;
+  border-radius: var(--radiusLeftTop);
   padding: 96px 24px 125px;
-  background-color: $blue_04;
+  background-color: var(--blue_04);
 }
 
 .clientSection__wrapper {
@@ -16,7 +16,7 @@
 .clientSection__textInfo {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  color: $white;
+  color: var(--white);
   gap: 48px;
 }
 
@@ -48,27 +48,27 @@
 
   padding: 41px 45px;
   text-align: center;
-  color: $white;
+  color: var(--white);
 
   &:nth-child(1),
   &:nth-child(2),
   &:nth-child(3) {
-    border-right: 1px solid $white;
-    border-bottom: 1px solid $white;
+    border-right: 1px solid var(--white);
+    border-bottom: 1px solid var(--white);
   }
 
   &:nth-child(4) {
-    border-bottom: 1px solid $white;
+    border-bottom: 1px solid var(--white);
   }
 
   &:nth-child(5),
   &:nth-child(6),
   &:nth-child(7) {
-    border-right: 1px solid $white;
+    border-right: 1px solid var(--white);
   }
 }
 
 .clientSection__tableElementLast {
   text-align: center;
-  background-color: $blue_01-02;
+  background-color: var(--blue_01-02);
 }

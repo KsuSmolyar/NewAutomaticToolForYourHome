@@ -1,6 +1,6 @@
 @include desktop {
   .footer__wrapper {
-    border-radius: $radiusRightTopXL;
+    border-radius: var(--radiusRightTopXL);
     padding: 91px 0 64px 47px;
   }
 
@@ -93,7 +93,7 @@
   }
 
   .footer__wrapper {
-    border-radius: $radiusRightTopSM;
+    border-radius: var(--radiusRightTopSM);
     padding: 40px 10px 50px 32px;
     gap: 52px;
   }

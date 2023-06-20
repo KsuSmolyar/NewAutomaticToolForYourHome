@@ -29,7 +29,7 @@
   @include maxWidth(358px);
 
   letter-spacing: 0.04em;
-  color: $blue_02;
+  color: var(--blue_02);
 }
 
 .infoCard {
@@ -38,10 +38,10 @@
   align-items: center;
   justify-content: space-between;
   justify-self: end;
-  border-radius: $radius;
+  border-radius: var(--radius);
   padding: 48px;
   height: 525px;
-  box-shadow: $shadow_1;
+  box-shadow: var(--shadow_1);
   gap: 56px;
 
   @extend %flexColumn;
@@ -68,7 +68,7 @@
 
 .infoCard__textInfo {
   letter-spacing: 0.05em;
-  color: $blue_01;
+  color: var(--blue_01);
   gap: 16px;
 
   @extend %flexColumn;
@@ -94,7 +94,7 @@
   span {
     @include font(14px, 30px, 500);
 
-    color: $blue_04;
+    color: var(--blue_04);
   }
 }
 

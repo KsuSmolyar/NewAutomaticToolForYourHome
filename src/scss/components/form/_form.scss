@@ -1,11 +1,12 @@
 .form {
   @include size(100%, auto);
 
-  border-radius: $radius;
+  margin: auto;
+  border-radius: var(--radius);
   padding: 44px;
-  box-shadow: $shadow_3;
-  color: $blue_01;
-  background-color: $white;
+  box-shadow: var(--shadow_3);
+  color: var(--blue_01);
+  background-color: var(--white);
   gap: 70px;
 
   button {
@@ -45,12 +46,12 @@
     position: absolute;
     bottom: -22px;
     font-size: 14px;
-    color: $red;
+    color: var(--red);
   }
 
   &[data-error] .form__input,
   &[data-error] .form__textarea {
-    border-color: $red;
+    border-color: var(--red);
   }
 
   @extend %flexColumn;
@@ -58,8 +59,8 @@
 
 .form__input,
 .form__textarea {
-  border: 1px solid $blue_03-04;
-  border-radius: $radius;
+  border: 1px solid var(--blue_03-04);
+  border-radius: var(--radius);
   padding: 21px;
 }
 
@@ -78,6 +79,6 @@
 
 .form__input:focus-visible,
 .form__textarea:focus-visible {
-  outline: 2px solid $blue_03;
-  box-shadow: $shadow_3;
+  outline: 2px solid var(--blue_03);
+  box-shadow: var(--shadow_3);
 }

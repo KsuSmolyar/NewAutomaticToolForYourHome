@@ -1,12 +1,11 @@
 import { DEFAULT_VALIDATOR } from './helpers';
 
 export class Validator {
-  constructor({ rules = [], validator = DEFAULT_VALIDATOR }) {
-    this.rules = rules;
+  constructor(validator = DEFAULT_VALIDATOR) {
     this.validator = validator;
   }
 
-  validate(value) {
-    return this.validator({ value, rules: this.rules });
+  validate(element) {
+    return this.validator(element);
   }
 }
